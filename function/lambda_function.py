@@ -19,5 +19,4 @@ def lambda_handler(event, context):
         return "Hi There"
 
     else:
-
-        raise
+       raise
