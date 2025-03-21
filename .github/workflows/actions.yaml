@@ -8,7 +8,7 @@ on:
 
 jobs:
   metadata:
-    runs-on: ec2-runner-172
+    runs-on: ubuntu-latest
     steps:
       - name: echo everything
         run: |
@@ -17,7 +17,7 @@ jobs:
           printenv
 
   lint:
-    runs-on: ec2-runner-172
+    runs-on: ubuntu-latest
     steps:
       - name: Check out code
         uses: actions/checkout@v2
