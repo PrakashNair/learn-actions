@@ -16,7 +16,7 @@ runs:
   steps:
     - shell: bash
       env:
-        INPUT_SECRET_TOKEN: ${{ inputs.secret_token }}
+        INPUT_CUSTOM_PARAM: ${{ inputs.secret_token }}
 #        SECRET_SECRET_TOKEN: ${{ secrets.TEST_SECRETS }}
       run: |
         export PYTHONPATH=${{ github.action_path }}:${{ github.action_path }}/vendor
@@ -24,5 +24,5 @@ runs:
         python3 -m myaction \
             --github-repository="${{ inputs.repository }}" \
             --github-token="${{ inputs.token }}" \
-            --input-secret-token="${{ inputs.secret_token }}"
+            --input-custom-param="$INPUT_CUSTOM_PARAM"
         
