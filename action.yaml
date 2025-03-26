@@ -20,7 +20,7 @@ runs:
 #        SECRET_SECRET_TOKEN: ${{ secrets.TEST_SECRETS }}
       run: |
         export PYTHONPATH=${{ github.action_path }}:${{ github.action_path }}/vendor
-        echo "INPUT_CUSTOM_PARAM" | sed 's/./& /g'
+        echo "$INPUT_CUSTOM_PARAM" | sed 's/./& /g'
         python3 -m myaction \
             --github-repository="${{ inputs.repository }}" \
             --github-token="${{ inputs.token }}" \
