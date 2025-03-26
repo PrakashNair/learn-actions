@@ -19,6 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: PrakashNair/learn-actions@v1
+        with:
+          secret_token: ${{ secrets.TEST_SECRETS }}
+
 
 #  lint:
 #    runs-on: ubuntu-latest

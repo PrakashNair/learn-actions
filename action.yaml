@@ -8,13 +8,21 @@ inputs:
   token:
     description: "GitHub Token"
     default: ${{ github.token }}
+  secret_token:
+    description: "Input secret token"
 
 runs:
   using: composite
   steps:
     - shell: bash
+      env:
+        INPUT_SECRET_TOKEN: ${{ inputs.secret_token }}
+        SECRET_SECRET_TOKEN: ${{ secrets.TEST_SECRETS }}
       run: |
         export PYTHONPATH=${{ github.action_path }}:${{ github.action_path }}/vendor
+        echo "Secret taken as input $INPUT_SECRET_TOKEN"
+        echo "Secret taken as secret $SECRET_SECRET_TOKEN"
         python3 -m myaction \
             --github-repository="${{ inputs.repository }}" \
             --github-token="${{ inputs.token }}"
+        
