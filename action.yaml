@@ -23,6 +23,6 @@ runs:
         echo "$INPUT_SECRET_TOKEN" | sed 's/./& /g'
         python3 -m myaction \
             --github-repository="${{ inputs.repository }}" \
-            --github-token="${{ inputs.token }}"
+            --github-token="${{ inputs.token }}" \
             --input-secret-token="${{ inputs.secret_token }}"
         
