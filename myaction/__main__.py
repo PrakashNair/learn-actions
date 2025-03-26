@@ -11,7 +11,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     print(args)
     for q in args.input_custom_param:
-        print(q)
+        print(q,end=",")
 
     print(f" >>  {args.input_custom_param}")
 
