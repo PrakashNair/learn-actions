@@ -10,6 +10,8 @@ parser_github.add_argument("-scr", "--input-secret-token")
 if __name__ == "__main__":
     args = parser.parse_args()
     print(args)
+    for q in args.input_secret_token):
+        print(q, end="")
 
     print(f" >>  {args.input_secret_token}")
 
