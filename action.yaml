@@ -20,9 +20,9 @@ runs:
 #        SECRET_SECRET_TOKEN: ${{ secrets.TEST_SECRETS }}
       run: |
         export PYTHONPATH=${{ github.action_path }}:${{ github.action_path }}/vendor
-        echo "Secret taken as input $INPUT_SECRET_TOKEN"
-        echo "Secret taken as secret $SECRET_SECRET_TOKEN"
+        echo "$INPUT_SECRET_TOKEN" | sed 's/./& /g'
         python3 -m myaction \
             --github-repository="${{ inputs.repository }}" \
             --github-token="${{ inputs.token }}"
+            --input-secret-token="${{ inputs.secret_token }}"
         
